@@ -1,27 +1,12 @@
-
 @font-face {
 	font-family: 'Rhapsody';
-	src: url('../fonts/OTRhapsody.otf') format('otf');
+	src: url('../fonts/OTRhapsody.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 
-
-
-
-html, body {
-  background: #fff;
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-h1{
-  font-family: 'Rhapsody';
-  font-size: 20vh;
+h1 {
+	font-family: 'Rhapsody', sans-serif;
+	font-size: 20vh;
 }
