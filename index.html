@@ -13,8 +13,13 @@
     <div id="vanta-container"></div>
 
 
-    <div id="headline-container">
+    <div id="headline" onclick="moveToTopLeft()">
       Softness
+    </div>  
+
+
+    <div id=introcard>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -35,7 +40,15 @@
   sunColor: 0xff8e00,
   sunGlareColor: 0xffac62,
   speed: 0.70
-})
+});
+
+function moveToTopLeft() {
+  var headlineContainer = document.getElementById("headline");
+  headlineContainer.style.bottom = "auto";
+  headlineContainer.style.top = "20px";
+  headlineContainer.style.left = "90px";
+  headlineContainer.style.fontSize = "4vh"; 
+}
     </script>
   
   </body>
