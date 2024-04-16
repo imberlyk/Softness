@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'Rhapsody';
-  src: url('Softness/FONTS/OTRhapsody.otf') format('opentype');
+  src: url('Softness/font/OTRhapsody.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 
 h1 {
-	font-family: 'Rhapsody', sans-serif;
+	font-family: 'Rhapsody';
 	font-size: 20vh;
 }
