@@ -6,13 +6,33 @@
 }
 
 
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 h1 {
 	font-family: 'Rhapsody';
 	font-size: 20vh;
 }
 
 
-id{
-  width: 100%
+#vanta-container {
+  width: 100%;
   height: 100vh;
 }
+
+  #headline-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10vh; /* Adjust font size as needed */
+    font-weight: bold;
+    text-align: center;
+  }

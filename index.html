@@ -1,30 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clouds Animation</title>
-</head>
-<body>
 
-  <!-- Container for Vanta.js effect -->
-  <div id="vanta-container"></div>
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Clouds Animation</title>
+  </head>
+  <body>
+  
 
-  <!-- Include Three.js and Vanta.js libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://www.vantajs.com/dist/vanta.clouds.min.js"></script>
+    <div id="vanta-container"></div>
 
-  <!-- Script to initialize Vanta.js Clouds effect -->
-  <script>
-    // Initialize Vanta.js Clouds effect
-    VANTA.CLOUDS({
-      el: "#vanta-container",  // Specify the HTML element ID
-      skyColor: 0xe0e0e0,      // Customize sky color (optional)
-      cloudColor: 0xffffff,    // Customize cloud color (optional)
-      cloudShadowColor: 0x505050, // Customize cloud shadow color (optional)
-      speed: 0.5               // Adjust animation speed (optional)
-    });
-  </script>
 
-</body>
-</html>
+    <div id="headline-container">
+      Softness
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://www.vantajs.com/dist/vanta.clouds.min.js"></script>
+
+    <script>
+     
+      VANTA.CLOUDS({
+        el: "#vanta-container",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  skyColor: 0xffffff,
+  cloudColor: 0xb4cbeb,
+  cloudShadowColor: 0x5863aa,
+  sunColor: 0xff8e00,
+  sunGlareColor: 0xffac62,
+  speed: 0.70
+})
+    </script>
+  
+  </body>
+  </html>
+  
