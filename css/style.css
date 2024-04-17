@@ -6,37 +6,65 @@
 }
 
 
+@font-face {
+  font-family: 'Newedge';
+  src: url('../font/NewEdge666.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 h1 {
-	font-family: 'Rhapsody';
-	font-size: 20vh;
+  font-family: 'Rhapsody';
+  font-size: 20vh;
 }
-
 
 #vanta-container {
   width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the Vanta.js canvas is behind other content */
 }
 
-#headline {
-  position: absolute;
-  bottom: 20px; 
-  left: 50%;
-  color:blue;
+.interactive-div {
+  width: 50%; /* Adjust width as needed */
+  max-width: 400px; /* Maximum width for responsiveness */
+  background-color: yellow;
+  color: black;
+  text-align: left;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  font-size: 30px; /* Maintain the original font size */
+  line-height: 1.5; /* Set line height for readability */
+  position: fixed;
+  bottom: -730px; /* Position the div mostly outside the viewport */
+  left: 30%;
   transform: translateX(-50%);
-  text-align: center;
-  font-family: 'Rhapsody', sans-serif;
-  font-size: 15vh; 
-  font-weight: bold;
-  padding: 10px; 
-  cursor: pointer; 
-  transition: all 0.3s ease-in-out; 
-  max-width: calc(100vw - 40px);
-  max-height: calc(100vh - 40px); 
-  overflow: hidden;
+  cursor: pointer;
+  transition: bottom 0.3s ease, transform 0.3s ease;
+}
+
+.interactive-div:hover {
+  bottom: -720px; /* Move up by 5px on hover */
+}
+
+.interactive-div.clicked {
+  bottom: auto; /* Remove bottom positioning on click */
+  top: 200px; /* Move to the top of the page */
+  transform: translateX(-50%) translateY(0);
+  transition:  transform 0.3s ease; /* Reset transform */
+}
+
+.content {
+  /* Styling for the scrollable content */
+  max-height: 50%; /* Allow the content wrapper to fill the available height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
