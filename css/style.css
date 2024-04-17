@@ -5,13 +5,13 @@
   font-style: normal;
 }
 
-
 @font-face {
   font-family: 'Newedge';
-  src: url('../font/NewEdge666.otf') format('opentype');
+  src: url('../font/NewEdge666-LightRounded.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
+
 body, html {
   margin: 0;
   padding: 0;
@@ -30,41 +30,44 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1; /* Ensure the Vanta.js canvas is behind other content */
+  z-index: -1;
 }
 
 .interactive-div {
-  width: 50%; /* Adjust width as needed */
-  max-width: 400px; /* Maximum width for responsiveness */
+  width: 50%; 
+  max-width: 400px;
   background-color: yellow;
   color: black;
   text-align: left;
   padding-left: 40px;
   padding-right: 40px;
-  padding-top: 5px;
-  font-size: 30px; /* Maintain the original font size */
-  line-height: 1.5; /* Set line height for readability */
+  padding-top: 15px;
+  font-size: 30px; 
+  font-family: 'Newedge';
+  line-height: 1.5; /
   position: fixed;
-  bottom: -730px; /* Position the div mostly outside the viewport */
+  bottom: -750px; 
   left: 30%;
   transform: translateX(-50%);
   cursor: pointer;
+  z-index: 2;
+  position:relative;
   transition: bottom 0.3s ease, transform 0.3s ease;
 }
 
 .interactive-div:hover {
-  bottom: -720px; /* Move up by 5px on hover */
+  bottom: 5px; /* Move up by 5px on hover */
 }
 
 .interactive-div.clicked {
-  bottom: auto; /* Remove bottom positioning on click */
-  top: 200px; /* Move to the top of the page */
+  bottom: auto; 
+  top: 100px;
   transform: translateX(-50%) translateY(0);
-  transition:  transform 0.3s ease; /* Reset transform */
+  transition:  transform 0.3s ease; 
 }
 
 .content {
-  /* Styling for the scrollable content */
-  max-height: 50%; /* Allow the content wrapper to fill the available height */
-  overflow-y: auto; /* Enable vertical scrolling */
+ 
+  max-height: 50%; 
+  overflow-y: auto; 
 }
