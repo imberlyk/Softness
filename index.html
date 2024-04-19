@@ -14,6 +14,16 @@
     <p>"Softness" as a concept and practice has historically been marginalized in mainstream discourse as often associated with weakness or lack of resilience. This project seeks to question and explore idea(s) of softness and how the concept shapes our socio-political and cultural landscapes in subtle yet significant ways. Through the act of gathering, we aim to surface the multiple dimensions of softness and its recent surge globally in order to contribute to a more holistic understanding of the role of softness in our lives.</p>
 </div>
 
+<div class="image-container">
+  <img src="img/cloud.png">
+</div>
+
+<div id="shape" class="circle" onclick="transformShape()">
+</div>
+<div id="shape2" class="circle" onclick="transformShape()">
+</div>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://www.vantajs.com/dist/vanta.clouds.min.js"></script>
 
@@ -40,6 +50,29 @@
             interactiveDiv.classList.toggle('clicked');
         });
     });
+
+
+    function transformShape() {
+    const shape = document.getElementById('shape');
+
+
+    if (shape.classList.contains('circle')) {
+        shape.classList.remove('circle');
+        shape.classList.add('square');
+        shape.innerHTML = '';
+
+
+        const imageContainer = document.createElement('div');
+        imageContainer.classList.add('image-container');
+        const image = document.createElement('img');
+        image.src = 'your-image-url.jpg'; 
+        imageContainer.appendChild(image);
+        shape.parentNode.appendChild(imageContainer);
+
+
+    }
+}
+
 </script>
 
 </body>
