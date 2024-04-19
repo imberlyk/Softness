@@ -1,68 +1,46 @@
-
-  <!doctype html>
-  <html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <title>Clouds Animation</title>
-  </head>
-  <body>
-  
+</head>
+<body>
 
-    <div id="vanta-container"></div>
+<div id="vanta-container"></div>
 
+<div class="interactive-div">
+    <p>"Softness" as a concept and practice has historically been marginalized in mainstream discourse as often associated with weakness or lack of resilience. This project seeks to question and explore idea(s) of softness and how the concept shapes our socio-political and cultural landscapes in subtle yet significant ways. Through the act of gathering, we aim to surface the multiple dimensions of softness and its recent surge globally in order to contribute to a more holistic understanding of the role of softness in our lives.</p>
+</div>
 
-    <div id="card1"> 
-    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://www.vantajs.com/dist/vanta.clouds.min.js"></script>
 
-    <div id="card2">
-    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        VANTA.CLOUDS({
+            el: "#vanta-container",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200,
+            minWidth: 200,
+            skyColor: 0xffffff,
+            cloudColor: 0xb4cbeb,
+            cloudShadowColor: 0x5863aa,
+            sunColor: 0xff8e00,
+            sunGlareColor: 0xffac62,
+            speed: 0.70
+        });
 
-    <div id="card3">
-    </div>
+        const interactiveDiv = document.querySelector('.interactive-div');
 
-
-
-    <div class="interactive-div">
-          "Softness" as a concept and practice has historically been
-        <div class="content"> marginalized in mainstream discourse as often associated with weakness or lack of resilience. This project seeks to question and explore idea(s) of softness and how the concept shapes our socio-political and cultural landscapes in subtle yet significant ways. Through the act of gathering, we aim to surface the multiple dimensions of softness and its recent surge globally in order to contribute to a more holistic understanding of the role of softness in our lives. .</div>
-    </div>
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://www.vantajs.com/dist/vanta.clouds.min.js"></script>
-
-    <script>
-     
-      VANTA.CLOUDS({ el: "#vanta-container",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  skyColor: 0xffffff,
-  cloudColor: 0xb4cbeb,
-  cloudShadowColor: 0x5863aa,
-  sunColor: 0xff8e00,
-  sunGlareColor: 0xffac62,
-  speed: 0.70
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const interactiveDiv = document.querySelector('.interactive-div');
-
-    interactiveDiv.addEventListener('click', function() {
-        interactiveDiv.classList.toggle('clicked');
+        interactiveDiv.addEventListener('click', function() {
+            interactiveDiv.classList.toggle('clicked');
+        });
     });
-});
+</script>
 
-    </script>
-  
-  </body>
-  </html>
-  
+</body>
+</html>
