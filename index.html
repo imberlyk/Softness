@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
-    <title>Clouds Animation</title>
+    <title>Softness</title>
 </head>
 <body>
 
@@ -18,10 +18,30 @@
   <img src="img/cloud.png">
 </div>
 
-<div id="shape" class="circle" onclick="transformShape()">
+<div class="index">Index</div>
+
+
+<div id="shape" class="circle">
 </div>
-<div id="shape2" class="circle" onclick="transformShape()">
+<div id="shape2" class="circle">
 </div>
+<div id="shape3" class="circle">
+</div>
+<div id="shape4" class="circle">
+</div>
+<div id="shape5" class="circle">
+</div>
+<div id="shape6" class="circle">
+</div>
+<div id="shape7" class="circle">
+</div>
+
+<div id="shape8" class="circle">
+</div>
+
+<div id="shape9" class="circle">
+</div>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -52,26 +72,75 @@
     });
 
 
-    function transformShape() {
-    const shape = document.getElementById('shape');
+  function getRandomNumber(min, max, margin) {
+            return Math.random() * (max - min - 2 * margin) + min + margin;
+        }
 
+        // Function to create and position 20 random shapes
+        function createRandomShapes() {
+            const numShapes = 20;
+            const body = document.body;
+            const margin = 40; // Minimum margin from edges
 
-    if (shape.classList.contains('circle')) {
-        shape.classList.remove('circle');
-        shape.classList.add('square');
-        shape.innerHTML = '';
+            for (let i = 0; i < numShapes; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'shape';
+                shape.style.left = getRandomNumber(0, window.innerWidth, margin) + 'px'; // Random left position
+                shape.style.top = getRandomNumber(0, window.innerHeight, margin) + 'px'; // Random top position
+                shape.innerText = i + 1; // Display a number inside the shape
 
+                // Add event listener to show custom content when shape is clicked
+                shape.addEventListener('click', () => {
+                    showCustomContent(i + 1); // Pass shape number as parameter
+                });
 
-        const imageContainer = document.createElement('div');
-        imageContainer.classList.add('image-container');
-        const image = document.createElement('img');
-        image.src = 'your-image-url.jpg'; 
-        imageContainer.appendChild(image);
-        shape.parentNode.appendChild(imageContainer);
+                body.appendChild(shape);
+            }
+        }
 
+        // Function to show custom content specific to each shape
+        function showCustomContent(shapeNumber) {
+            // Create or retrieve the custom content div
+            let customContent = document.getElementById(`custom-content-${shapeNumber}`);
+            if (!customContent) {
+                // Create custom content div if it doesn't exist
+                customContent = document.createElement('div');
+                customContent.id = `custom-content-${shapeNumber}`;
+                customContent.className = 'custom-content';
 
-    }
-}
+                // Fill custom content with text, images, or links (example)
+                customContent.innerHTML = `
+                    <h2>entry ${5}</h2>
+                    <p>In a world often characterized by its harshness and rigidity, embracing softness is a reminder of our shared humanity and the importance of cultivating sensitivity and grace. It invites us to slow down, appreciate the subtleties of life, and connect with others on a deeper, more heartfelt level. ${5}!</p>
+                    <img src="image${5}.jpg" alt="Image ${5}">
+                    <a href="https://instagram.com/${5}" target="_blank">Link to Example ${shapeNumber}</a>
+                `;
+
+                customContent.innerHTML = `
+                    <h2>entry ${shapeNumber}</h2>
+                    <p>Shape ${shapeNumber}!</p>
+                    <img src="image${shapeNumber}.jpg" alt="Image ${shapeNumber}">
+                    <a href="https://example.com/${shapeNumber}" target="_blank">Link to Example ${shapeNumber}</a>
+                `;
+
+                // Append custom content to the body
+                document.body.appendChild(customContent);
+            }
+
+            // Display the custom content
+            customContent.style.left = '50%';
+            customContent.style.top = '50%';
+            customContent.style.transform = 'translate(-50%, -50%)'; // Center the custom content
+            customContent.style.display = 'block';
+
+            // Close custom content when clicked outside of it
+            customContent.addEventListener('click', () => {
+                customContent.style.display = 'none';
+            });
+        }
+
+        // Call the function when the page loads
+        window.onload = createRandomShapes;
 
 </script>
 

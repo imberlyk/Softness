@@ -19,6 +19,19 @@ body, html {
   overflow: hidden;
 }
 
+.index{
+  z-index: 5;
+  font-family: 'Newedge';
+  font-size: 40px;
+  top: 30px;
+  left: 90%;
+  cursor: pointer;
+  position: relative;
+}
+
+.index:hover{
+  color:yellow;
+}
 #vanta-container {
   width: 100%;
   height: 100vh;
@@ -37,12 +50,13 @@ body, html {
   text-align: left;
   padding-left: 40px;
   padding-right: 40px;
-  padding-top: 15px;
-  font-size: 30px; 
+  padding-top: 5px;
+  font-size: 25px; 
   font-family: 'Newedge';
   line-height: 1.5; 
-  bottom: -750px; 
-  left: 30%;
+  bottom: -550px; 
+  left: 20%;
+  filter: drop-shadow(0 0 0.70rem rgb(129, 125, 125));
   transform: translateX(-50%);
   cursor: pointer;
   z-index: 2;
@@ -51,13 +65,13 @@ body, html {
 }
 
 .interactive-div:hover {
-  bottom: 5px; /* Move up by 5px on hover */
+  bottom: -20px; 
  
 }
 
 .interactive-div.clicked { 
   bottom: auto; 
-  top: 100px;
+  top: 80px;
   transform: translateX(-50%) translateY(0);
   transition: transform 0.3s ease; 
 }
@@ -66,23 +80,23 @@ body, html {
   overflow-y: auto; 
 }
 
-
-#shape {
+.shape {
   width: 4vh;
-  height:4vh;
+  height: 4vh;
   background-color: yellow;
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  margin: 30vh;
   align-items: center;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 12px;
+  font-family:'Newedge' ;
+  filter: blur(10px);
+  position: absolute; /* Position absolutely for random placement */
 }
 
-
-#shape, #shape2:hover {
-  filter: blur(5px);
+.shape:hover {
+  filter: blur(0px);
 
 }
 
@@ -99,5 +113,20 @@ body, html {
 .image-container img {
   width: 100px;
   height: 100px;
+}
+
+.custom-content {
+  display: none;
+  position: absolute;
+  width: 500px;
+  height: 700px;
+  font-family: 'Newedge';
+  background-color: yellow;
+  cursor:cell;
+  filter: drop-shadow(0 0 0.70rem rgb(129, 125, 125));
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  z-index: 100;
 }
 
