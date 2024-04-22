@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
+   
     <title>Softness</title>
 </head>
 <body>
@@ -15,134 +16,117 @@
 </div>
 
 <div class="image-container">
-  <img src="img/cloud.png">
+    <img src="img/cloud.png">
 </div>
 
 <div class="index">Index</div>
 
-
-<div id="shape" class="circle">
-</div>
-<div id="shape2" class="circle">
-</div>
-<div id="shape3" class="circle">
-</div>
-<div id="shape4" class="circle">
-</div>
-<div id="shape5" class="circle">
-</div>
-<div id="shape6" class="circle">
-</div>
-<div id="shape7" class="circle">
-</div>
-
-<div id="shape8" class="circle">
-</div>
-
-<div id="shape9" class="circle">
-</div>
-
-
+<div id="shape-container"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://www.vantajs.com/dist/vanta.clouds.min.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        VANTA.CLOUDS({
-            el: "#vanta-container",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200,
-            minWidth: 200,
-            skyColor: 0xffffff,
-            cloudColor: 0xb4cbeb,
-            cloudShadowColor: 0x5863aa,
-            sunColor: 0xff8e00,
-            sunGlareColor: 0xffac62,
-            speed: 0.70
-        });
+  document.addEventListener('DOMContentLoaded', function() {
+      VANTA.CLOUDS({
+          el: "#vanta-container",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200,
+          minWidth: 200,
+          skyColor: 0xffffff,
+          cloudColor: 0xb4cbeb,
+          cloudShadowColor: 0x5863aa,
+          sunColor: 0xff8e00,
+          sunGlareColor: 0xffac62,
+          speed: 0.70
+      });
 
-        const interactiveDiv = document.querySelector('.interactive-div');
+      const shapeContainer = document.getElementById('shape-container');
 
-        interactiveDiv.addEventListener('click', function() {
-            interactiveDiv.classList.toggle('clicked');
-        });
-    });
+      function createShapes(numShapes) {
+          const margin = 40; // Minimum margin from edges
 
+          for (let i = 1; i <= numShapes; i++) {
+              const shape = document.createElement('div');
+              shape.className = 'shape';
+              shape.style.left = getRandomNumber(0, window.innerWidth, margin) + 'px'; // Random left position
+              shape.style.top = getRandomNumber(0, window.innerHeight, margin) + 'px'; // Random top position
+              shape.innerText = i; // Display shape number
 
-  function getRandomNumber(min, max, margin) {
-            return Math.random() * (max - min - 2 * margin) + min + margin;
-        }
+              // Add event listener to show custom content when shape is clicked
+              shape.addEventListener('click', () => {
+                  showCustomContent(i); // Pass shape number as parameter
+              });
 
-        // Function to create and position 20 random shapes
-        function createRandomShapes() {
-            const numShapes = 20;
-            const body = document.body;
-            const margin = 40; // Minimum margin from edges
+              shapeContainer.appendChild(shape);
+          }
+      }
 
-            for (let i = 0; i < numShapes; i++) {
-                const shape = document.createElement('div');
-                shape.className = 'shape';
-                shape.style.left = getRandomNumber(0, window.innerWidth, margin) + 'px'; // Random left position
-                shape.style.top = getRandomNumber(0, window.innerHeight, margin) + 'px'; // Random top position
-                shape.innerText = i + 1; // Display a number inside the shape
+      createShapes(20); // Create 20 shapes
 
-                // Add event listener to show custom content when shape is clicked
-                shape.addEventListener('click', () => {
-                    showCustomContent(i + 1); // Pass shape number as parameter
-                });
+      function showCustomContent(shapeNumber) {
+          const contentMap = {
+              1: {
+                  title: 'Entry 1',
+                  text: 'Custom content for Shape 1',
+                  image: 'img/Amanda Li.jpeg',
+                  link: 'https://example.com/1',
+                  submittedBy: 'John Doe'
+              },
+              2: {
+                  title: 'Entry 2',
+                  text: 'Custom content for Shape 2',
+                  image: 'image2.jpg',
+                  link: 'https://example.com/2',
+                  submittedBy: 'Jane Smith'
+              },
+              // Add entries for shapes 3 to 20 as needed
+              // Example:
+              // 3: {
+              //     title: 'Entry 3',
+              //     text: 'Custom content for Shape 3',
+              //     image: 'image3.jpg',
+              //     link: 'https://example.com/3',
+              //     submittedBy: 'Alice Johnson'
+              // },
+              // ...
+          };
 
-                body.appendChild(shape);
-            }
-        }
+          const shapeContent = contentMap[shapeNumber];
 
-        // Function to show custom content specific to each shape
-        function showCustomContent(shapeNumber) {
-            // Create or retrieve the custom content div
-            let customContent = document.getElementById(`custom-content-${shapeNumber}`);
-            if (!customContent) {
-                // Create custom content div if it doesn't exist
-                customContent = document.createElement('div');
-                customContent.id = `custom-content-${shapeNumber}`;
-                customContent.className = 'custom-content';
+          if (shapeContent) {
+              let customContent = document.querySelector('.custom-content');
+              
+              // Check if custom content already exists
+              if (!customContent) {
+                  customContent = document.createElement('div');
+                  customContent.className = 'custom-content';
+                  document.body.appendChild(customContent);
+              }
 
-                // Fill custom content with text, images, or links (example)
-                customContent.innerHTML = `
-                    <h2>entry ${5}</h2>
-                    <p>In a world often characterized by its harshness and rigidity, embracing softness is a reminder of our shared humanity and the importance of cultivating sensitivity and grace. It invites us to slow down, appreciate the subtleties of life, and connect with others on a deeper, more heartfelt level. ${5}!</p>
-                    <img src="image${5}.jpg" alt="Image ${5}">
-                    <a href="https://instagram.com/${5}" target="_blank">Link to Example ${shapeNumber}</a>
-                `;
+              // Update content inside custom content div
+              customContent.innerHTML = `
+                  <h2>${shapeContent.title}</h2>
+                  <p>${shapeContent.text}</p>
+                  <img src="${shapeContent.image}" alt="Image ${shapeNumber}">
+                  <a href="${shapeContent.link}" target="_blank">Link to Example ${shapeNumber}</a>
+                  <p>Submitted by ${shapeContent.submittedBy}</p>
+              `;
 
-                customContent.innerHTML = `
-                    <h2>entry ${shapeNumber}</h2>
-                    <p>Shape ${shapeNumber}!</p>
-                    <img src="image${shapeNumber}.jpg" alt="Image ${shapeNumber}">
-                    <a href="https://example.com/${shapeNumber}" target="_blank">Link to Example ${shapeNumber}</a>
-                `;
-
-                // Append custom content to the body
-                document.body.appendChild(customContent);
-            }
-
-            // Display the custom content
-            customContent.style.left = '50%';
-            customContent.style.top = '50%';
-            customContent.style.transform = 'translate(-50%, -50%)'; // Center the custom content
-            customContent.style.display = 'block';
-
-            // Close custom content when clicked outside of it
-            customContent.addEventListener('click', () => {
+              customContent.addEventListener('click', () => {
                 customContent.style.display = 'none';
             });
-        }
+              // Toggle visibility of custom content
+              customContent.style.display = customContent.style.display === 'block' ? 'none' : 'block';
+          }
+      }
 
-        // Call the function when the page loads
-        window.onload = createRandomShapes;
-
+      function getRandomNumber(min, max, margin) {
+          return Math.random() * (max - min - 2 * margin) + min + margin;
+      }
+  });
 </script>
-
 </body>
 </html>

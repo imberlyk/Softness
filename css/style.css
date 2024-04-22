@@ -79,7 +79,9 @@ body, html {
   max-height: 50%;
   overflow-y: auto; 
 }
+.shape-container{
 
+}
 .shape {
   width: 4vh;
   height: 4vh;
@@ -101,6 +103,7 @@ body, html {
 }
 
 
+
 .square {
   border-radius: 0;
 }
@@ -118,15 +121,26 @@ body, html {
 .custom-content {
   display: none;
   position: absolute;
-  width: 500px;
-  height: 700px;
+  width: 80%;
   font-family: 'Newedge';
   background-color: yellow;
-  cursor:cell;
+  cursor: cell;
   filter: drop-shadow(0 0 0.70rem rgb(129, 125, 125));
   border-radius: 5px;
-  padding: 10px;
+  margin: 1vh;
+  top: 5px;
+  bottom: 5px;
   text-align: center;
+  overflow-y: auto;
   z-index: 100;
 }
+}
 
+.custom-content img {
+  max-width: 70%;
+  max-height: 50%;
+
+  border-radius: 5px;
+  margin-left: 10%;
+  margin-bottom: 10px;
+}
