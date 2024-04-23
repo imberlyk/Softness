@@ -225,7 +225,9 @@ body, html {
     .interactive-div {
       font-size: 8px;
       padding: 4px;
-      bottom: -150px;
+      width: 30px;
+      left:20px; 
+      bottom: -120px;
     }
   
     .custom-content {
@@ -266,6 +268,7 @@ body, html {
     #volume:hover{
       color: yellow;
       text-decoration: dotted;
+
     }
     
 
