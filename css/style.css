@@ -220,8 +220,8 @@ body, html {
   @media screen and (max-width: 600px) {
 
     .interactive-div {
-      font-size: 16px;
-      padding: 8px;
+      font-size: 6px;
+      padding: 4px;
       bottom: -150px;
     }
   
