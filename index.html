@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
    
-    <title>Softness</title>
+    <title>softness</title>
 </head>
 <body>
 
 <div id="vanta-container"></div>
 
 <div class="interactive-div">
-    <p>"Softness" as a concept and practice has historically been marginalized in mainstream discourse as often associated with weakness or lack of resilience. This project seeks to question and explore idea(s) of softness and how the concept shapes our socio-political and cultural landscapes in subtle yet significant ways. Through the act of gathering, we aim to surface the multiple dimensions of softness and its recent surge globally in order to contribute to a more holistic understanding of the role of softness in our lives.</p>
+    <p>"softness" as a concept and practice has historically been marginalized in mainstream discourse as often associated with weakness or lack of resilience. This project seeks to question and explore idea(s) of softness and how the concept shapes our socio-political and cultural landscapes in subtle yet significant ways. Through the act of gathering, we aim to surface the multiple dimensions of softness and its recent surge globally in order to contribute to a more holistic understanding of the role of softness in our lives.</p>
 </div>
 
-<div class="image-container">
-    <img src="img/cloud.png">
-</div>
 
-<div class="index">Index</div>
+<a download="volume2" id="volume" href="pdf/Archiv.zip" target="_blank"> volume ii</a>
+
+<div class="index">index</div>
 
 <div id="shape-container"></div>
 
@@ -27,106 +26,166 @@
 <script src="https://www.vantajs.com/dist/vanta.clouds.min.js"></script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      VANTA.CLOUDS({
-          el: "#vanta-container",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200,
-          minWidth: 200,
-          skyColor: 0xffffff,
-          cloudColor: 0xb4cbeb,
-          cloudShadowColor: 0x5863aa,
-          sunColor: 0xff8e00,
-          sunGlareColor: 0xffac62,
-          speed: 0.70
-      });
 
-      const shapeContainer = document.getElementById('shape-container');
+document.addEventListener('DOMContentLoaded', function() {
+        VANTA.CLOUDS({
+            el: "#vanta-container",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200,
+            minWidth: 200,
+            skyColor: 0xffffff,
+            cloudColor: 0xb4cbeb,
+            cloudShadowColor: 0x5863aa,
+            sunColor: 0xff8e00,
+            sunGlareColor: 0xffac62,
+            speed: 0.70
+        });
 
-      function createShapes(numShapes) {
-          const margin = 40; // Minimum margin from edges
+        const shapeContainer = document.getElementById('shape-container');
 
-          for (let i = 1; i <= numShapes; i++) {
-              const shape = document.createElement('div');
-              shape.className = 'shape';
-              shape.style.left = getRandomNumber(0, window.innerWidth, margin) + 'px'; // Random left position
-              shape.style.top = getRandomNumber(0, window.innerHeight, margin) + 'px'; // Random top position
-              shape.innerText = i; // Display shape number
+        function createShapes(numShapes) {
+            const margin = 80; 
 
-              // Add event listener to show custom content when shape is clicked
-              shape.addEventListener('click', () => {
-                  showCustomContent(i); // Pass shape number as parameter
-              });
+            for (let i = 1; i <= numShapes; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'shape';
+                shape.style.left = getRandomNumber(0, window.innerWidth, margin) + 'px'; // Random left position
+                shape.style.top = getRandomNumber(0, window.innerHeight, margin) + 'px'; // Random top position
+                shape.innerText = i; // shape number
 
-              shapeContainer.appendChild(shape);
-          }
-      }
-
-      createShapes(20); // Create 20 shapes
-
-      function showCustomContent(shapeNumber) {
-          const contentMap = {
-              1: {
-                  title: 'Entry 1',
-                  text: 'Custom content for Shape 1',
-                  image: 'img/Amanda Li.jpeg',
-                  link: 'https://example.com/1',
-                  submittedBy: 'John Doe'
-              },
-              2: {
-                  title: 'Entry 2',
-                  text: 'Custom content for Shape 2',
-                  image: 'image2.jpg',
-                  link: 'https://example.com/2',
-                  submittedBy: 'Jane Smith'
-              },
-              // Add entries for shapes 3 to 20 as needed
-              // Example:
-              // 3: {
-              //     title: 'Entry 3',
-              //     text: 'Custom content for Shape 3',
-              //     image: 'image3.jpg',
-              //     link: 'https://example.com/3',
-              //     submittedBy: 'Alice Johnson'
-              // },
-              // ...
-          };
-
-          const shapeContent = contentMap[shapeNumber];
-
-          if (shapeContent) {
-              let customContent = document.querySelector('.custom-content');
+                shape.addEventListener('click', () => {
               
-              // Check if custom content already exists
-              if (!customContent) {
-                  customContent = document.createElement('div');
-                  customContent.className = 'custom-content';
-                  document.body.appendChild(customContent);
-              }
+                    shape.classList.toggle('clicked');
 
-              // Update content inside custom content div
-              customContent.innerHTML = `
-                  <h2>${shapeContent.title}</h2>
-                  <p>${shapeContent.text}</p>
-                  <img src="${shapeContent.image}" alt="Image ${shapeNumber}">
-                  <a href="${shapeContent.link}" target="_blank">Link to Example ${shapeNumber}</a>
-                  <p>Submitted by ${shapeContent.submittedBy}</p>
-              `;
+                    
+                    showCustomContent(i);
+                });
 
-              customContent.addEventListener('click', () => {
-                customContent.style.display = 'none';
-            });
-              // Toggle visibility of custom content
-              customContent.style.display = customContent.style.display === 'block' ? 'none' : 'block';
-          }
-      }
+                shapeContainer.appendChild(shape);
+            }
+        }
 
-      function getRandomNumber(min, max, margin) {
-          return Math.random() * (max - min - 2 * margin) + min + margin;
-      }
-  });
+        createShapes(10); 
+
+        function getRandomNumber(min, max, margin) {
+            return Math.random() * (max - min - 2 * margin) + min + margin;
+        }
+
+        function showCustomContent(shapeNumber) {
+    const contentMap = {
+        1: {
+            title: '',
+            text: 'a subject i failed to learn <br> I approach this love, like an analyst. <br> Restless, meticulous, sentimental. just to fail at understanding it. all I can do now is carry my failure with me, my rotten, growing, lace-like failure.',
+            image: 'img/Amanda Li.jpeg',
+        
+            from: 'amanda li'
+        },
+        2: {
+            title: '',
+            from: 'tonia zhang',
+            text: '',
+            image: 'img/Tonia Zhang.jpg',
+                     
+        },
+
+        3: {
+            title: 'alison plays <br> the viola',
+            from: 'evelyn cao',
+            text: 'this is a short film that’s a wordless portrait of my twin sibling alison. i wanted to capture the oppressive heat of a socal spring afternoon',
+            image: 'img/evelyn.png',
+            link: 'https://vimeo.com/933522488?share=copy',          
+        },
+
+        4: {
+            title: 'lonsome cowpoke',
+            from: 'elliot romano',
+            text: 'lonesome cowpoke is a machines attempt at rendering a traditionally masculine symbol: the american cowboy. lonesome cowpoke softens the edges of this rugged male trope in substance and bitrate. you can view the project at lonsomecowpoke.online',
+            image: 'img/Elliott Romano.png',
+            link: '',          
+        },
+
+        5: {
+            title: 'opacity provides a refuge to explore secret dreams',
+            from: 'kobe jackson ',
+            text: '',
+            image: 'img/kobe jackson.jpeg',
+            link: '',          
+        },
+       
+        6: {
+            title: '',
+            from: 'brooke',
+            text: '',
+            image: 'img/jenny holzer.png',
+            link: '',          
+        },
+       
+        7: {
+            title: 'passion is powerful',
+            from: 'margot peer',
+            text: '',
+            image: 'img/ Margot Peer.jpg',
+            link: '',          
+        },
+       
+
+        8: {
+            title: 'lonsome cowpoke',
+            from: 'elliot romano',
+            text: 'lonesome cowpoke is a machines attempt at rendering a traditionally masculine symbol: the american cowboy. lonesome cowpoke softens the edges of this rugged male trope in substance and bitrate. you can view the project at lonsomecowpoke.online',
+            image: 'img/02_Elliott Romano.png',
+            link: '',          
+        },
+       
+        9: {
+            title: 'opacity provides a refuge to explore secret dreams',
+            from: 'kobe jackson ',
+            text: '',
+            image: 'img/kobe jackson2.jpeg',
+            link: '',          
+        },
+
+        10: {
+            title: '',
+            from: 'olivia stoltzfus',
+            text: 'cape cod on sunday <br>I.<br>New friends stubble<br>the sloped sand<br>dunes of Province<br>Lands, toss football<brover sand formed<br>by a grinding<br>glacier, wave arms<brover sediment from<br>an outwash plain.<br><br>II.<br><br>The American beachgrass,<br>seaside goldenrod, and<br>wormwood (especially close<br>to the sea)<br>protect themselves by<br>growing a waxy<br>cuticle to cut<br>the salt spray<br>and coastal wind.<br><br>III.<br><br>Parting is such<br>sweet sorrow.<br>My arms are<br>thick with effort<br>to keep things<br>that can’t be<br>seen or heard—<br>the things that<br>matter the most.<br>',
+            image: 'img/empty.png',
+            link: '',          
+        },
+    };
+
+    const shapeContent = contentMap[shapeNumber];
+
+
+    let customContent = document.querySelector('.custom-content');
+    if (!customContent) {
+        customContent = document.createElement('div');
+        customContent.className = 'custom-content';
+        customContent.style.display = 'none'; 
+        document.body.appendChild(customContent);
+    }
+
+    
+    customContent.innerHTML = `
+        <h2>${shapeContent.title}</h2>
+        <h3>${shapeContent.from}</h3>
+        <p>${shapeContent.text}</p>
+        <img src="${shapeContent.image}" alt="Image ${shapeNumber}">
+        <a href="${shapeContent.link}" target="_blank">.</a>
+    `;
+
+   
+    customContent.style.display = 'grid'; 
+    customContent.style.gridTemplateColumns = 'auto auto'; 
+
+
+    customContent.addEventListener('click', () => {
+        customContent.style.display = 'none';
+    });
+}
+    });
 </script>
 </body>
 </html>
