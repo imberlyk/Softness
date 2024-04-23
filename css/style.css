@@ -217,10 +217,11 @@ body, html {
 
 
   @media screen and (max-width: 600px) {
+
     .interactive-div {
       font-size: 16px;
       padding: 8px;
-      bottom: -50px;
+      bottom: -150px;
     }
   
     .custom-content {
@@ -229,6 +230,41 @@ body, html {
       font-size: 14px;
       padding: 10px;
     }
+
+
+    .index{
+      z-index: 5;
+      font-family: 'Newedge';
+      font-size: 10px;
+      top: 0px;
+      left: 95%;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .index:hover{
+      color:yellow;
+    
+    }
+    
+    #volume{
+      z-index: 6;
+      font-family: 'Newedge';
+      font-size: 10px;
+      top: 2px;
+      left: 82%;
+      color: black;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+    }
+    
+    #volume:hover{
+      color: yellow;
+      text-decoration: dotted;
+    }
+    
+
   }
 
 
