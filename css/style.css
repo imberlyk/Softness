@@ -215,31 +215,21 @@ body, html {
 
 
 
-@media screen (max-width: 600px)   {
 
-  .custom-content {
-  width: 50%; 
-  max-width: 50px;
-  background-color: yellow;
-  transform: skew(0deg, 10deg);
-  color: black;
-  text-align: left;
-  line-height: 1;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  font-size: 5px; 
-  font-family: 'Newedge';
-  line-height: 1.5; 
-  bottom: -50px; 
-  left: 20%;
-  filter: drop-shadow(0 0 0.30rem rgb(129, 125, 125));
-  transform: translateX(-50%);
-  cursor: pointer;
-  z-index: 2;
-  position: fixed;
-  transition: bottom 0.3s ease, transform 0.3s ease;
-}
+  @media screen and (max-width: 600px) {
+    .interactive-div {
+      font-size: 16px;
+      padding: 8px;
+      bottom: -50px;
+    }
+  
+    .custom-content {
+      width: 90%;
+      max-width: 90vw;
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
 
 
 
@@ -247,7 +237,3 @@ body, html {
 
 
 
-
-
-
-}
