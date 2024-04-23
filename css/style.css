@@ -216,11 +216,14 @@ body, html {
 
 
 
+//* MEDIA MEDIA MEDIA MEDIA *//
+
+
 
   @media screen and (max-width: 600px) {
 
     .interactive-div {
-      font-size: 6px;
+      font-size: 8px;
       padding: 4px;
       bottom: -150px;
     }
