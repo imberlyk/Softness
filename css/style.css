@@ -34,6 +34,11 @@ body, html {
 
 }
 
+a{
+  text-decoration: underline;
+  color: black;
+}
+
 #volume{
   z-index: 6;
   font-family: 'Newedge';
@@ -74,7 +79,7 @@ body, html {
   font-size: 25px; 
   font-family: 'Newedge';
   line-height: 1.5; 
-  bottom: -550px; 
+  bottom: -690px; 
   left: 20%;
   filter: drop-shadow(0 0 0.70rem rgb(129, 125, 125));
   transform: translateX(-50%);
