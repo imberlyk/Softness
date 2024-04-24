@@ -65,6 +65,9 @@ a{
   z-index: -1;
 }
 
+p{
+  line-height: 1.2;
+}
 .interactive-div {
   width: 50%; 
   max-width: 400px;
@@ -72,16 +75,17 @@ a{
   transform: skew(0deg, 10deg);
   color: black;
   text-align: left;
-  line-height: 1;
+
   padding-left: 40px;
   padding-right: 40px;
-  padding-top: 5px;
+  padding-top: 2px;
+  padding-bottom: 40px;
   font-size: 25px; 
   font-family: 'Newedge';
   line-height: 1.5; 
-  bottom: -690px; 
+  bottom: -625px; 
   left: 20%;
-  filter: drop-shadow(0 0 0.70rem rgb(129, 125, 125));
+  filter: drop-shadow(0 0 0.70rem rgb(108, 172, 241));
   transform: translateX(-50%);
   cursor: pointer;
   z-index: 2;
@@ -91,15 +95,10 @@ a{
 
 .interactive-div:hover {
   bottom: 0px; 
- 
+
 }
 
-.interactive-div.clicked { 
-  bottom: auto; 
-  top: 80px;
-  transform: translateX(-50%) translateY(0);
-  transition: transform 0.3s ease; 
-}
+
 
 
 .content {
@@ -163,7 +162,7 @@ a{
   padding: 15px;
   cursor:pointer;
   background-color: yellow;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgb(108, 172, 241);
   text-align: left;
   z-index: 100;
   overflow-y: auto;
